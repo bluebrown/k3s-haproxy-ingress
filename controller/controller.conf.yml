@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: haproxy
+  namespace: haproxy-controller
+data:
+  max-connections: "5"
+  allowlist-source-range: <your-public-ip>
