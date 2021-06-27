@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: haproxy-configmap
+data:
+  allowlist-source-range: <your-public-ip>
+  load-balance: "leastconn"
+  cookie-persistence: "JSESSIONID"
+  ssl-certificate: default/my-tls-object
+  global-config-snippet: |
+    ssl-default-bind-options no-sslv3 no-tlsv10 no-tlsv11
+    ssl-default-bind-ciphers TLS13-AES-256-GCM-SHA384:TLS13-AES-128-GCM-SHA256:TLS13-CHACHA20-POLY1305-SHA256:EECDH+AESGCM:EECDH+CHACHA20
+    tune.ssl.default-dh-param 2048
+    tune.bufsize 32768

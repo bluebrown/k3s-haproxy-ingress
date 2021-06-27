@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: haproxy-configmap
-data:
-  balance-algorithm: leastconn
-  max-connections: "10"
-  ssl-redirect: "false"
-  allowlist-source-range: <your-public-ip>
