@@ -6,7 +6,7 @@ metadata:
     name: web-ingress
 spec:
   rules:
-  - host: rainbowstack.dev
+  - host: <your-domain>
     http:
       paths:
       - pathType: Prefix
