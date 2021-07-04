@@ -1,5 +1,11 @@
 # K3S Haproxy Ingress Controller
 
+## Start k3s
+
+```shell
+curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644"  sh -s --disable traefik
+```
+
 ## Create Secret TLS Objects
 
 ```shell
