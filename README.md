@@ -3,7 +3,20 @@
 ## Start k3s
 
 ```shell
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644"  sh -s --disable traefik
+curl -sfL https://get.k3s.io \
+    | sh -s - \
+        --write-kubeconfig-mode "0644" \
+        --disable traefik
+```
+
+If the service is already installed it will start again with the same command with which it was started the first time. This can also be modified in the `ExecStart` of /etc/systemd/system/k3s.service.
+
+Otherwise provide the flags on the normal server command.
+
+```shell
+k3s server \
+  --write-kubeconfig-mode "0644"    \
+  --disable traefik
 ```
 
 ## Create Secret TLS Objects
